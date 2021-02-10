@@ -1,28 +1,68 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const url = "https://your-projects-api.herokuapp.com"
+  
+  const emptyForm = {
+    name: "",
+    tech: "javascript",
+    image: "",
+    repo: "",
+    demo: "",
+    description: ""
+  }
+
+  const [formVals, setFormVals] = useState(emptyForm)
+
+  const handleChange = event => {
+    const name = event.target.name
+    setFormVals({
+      ...formVals,
+      [name]: event.target.value
+    })
+  }
+
+  const handleCreate = newProject => {
+    fetch(url + '/projects/', {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newProject)
+    }).then(() => {
+      setFormVals(emptyForm)
+      alert("Project added!")
+    })
+  }
+
   return (
     <div className="App">
       <div className="form-container">
           <div className="header">Add a project</div>
-          <form>
+          <div className="form">
               <label for="name">Project Name:</label>
-              <input type="text" name="name"/>
+              <input type="text" name="name" value={formVals.name} onChange={handleChange}/>
               <label for="tech">Tech:</label>
-              <select name="tech">
+              <select name="tech" onChange={handleChange}>
                   <option value="javascript">JavaScript</option>
                   <option value="react">React</option>
                   <option value="ruby">Ruby</option>
               </select>
               <label for="image">Image: </label>
-              <input type="text" name="image"/>
+              <input type="text" name="image" onChange={handleChange}/>
+              <label for="repo">Repo: </label>
+              <input type="text" name="repo" onChange={handleChange}/>
+              <label for="demo">Live Demo: </label>
+              <input type="text" name="demo" onChange={handleChange}/>
               <label for="description">Description:</label>
-              <textarea type="text" name="description"></textarea>
+              <textarea type="text" name="description" onChange={handleChange}></textarea>
               <div className="button">
-                  <input type="submit" value="Submit"/>
+                  <button onClick={handleCreate}>Submit</button>
               </div>
-          </form>
+          </div>
       </div>
     </div>
   );

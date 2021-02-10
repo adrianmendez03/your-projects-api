@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 html {
@@ -24,9 +25,10 @@ body {
     border-radius: 5px;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
+    font-size: 12px;
 }
 
 .header {
@@ -40,7 +42,7 @@ label {
     margin-bottom: 4px;
 }
 
-input {
+input, button {
     background-color: transparent;
     border: none;
     color: #fff;
@@ -55,8 +57,9 @@ input[type=text] {
 }
 
 select {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.25);
     border: none;
+    border-radius: 5px;
     color: #fff;
 }
 
@@ -65,12 +68,14 @@ input, select {
 }
 
 textarea {
+    height: 150px;
     background-color: rgba(255, 255, 255, 0.25);
     border: none;
     color: #fff;
+    border-radius: 5px;
 }
 
-input[type=submit] {
+button {
     width: 100px;
     margin-top: 10px;
     padding: 4px;
@@ -83,7 +88,7 @@ input[type=submit] {
     text-transform: uppercase;
 }
 
-input[type=submit]:hover {
+button:hover {
     background-color: rgba(255, 255, 255, 0.25);
     cursor: pointer;
 }
