@@ -26,7 +26,6 @@ function App() {
   }
 
   const handleCreate = newProject => {
-    console.log(newProject)
     fetch(url + '/projects/', {
       method: "post",
       headers: {
@@ -48,7 +47,7 @@ function App() {
               <input type="text" name="name" value={formVals.name} onChange={handleChange}/>
               <label htmlFor="tech">Tech:</label>
               <select name="tech" onChange={handleChange}>
-                  <option value="javascript">JavaScript</option>
+                  <option value="js">JavaScript</option>
                   <option value="react">React</option>
                   <option value="ruby">Ruby</option>
               </select>
