@@ -25,16 +25,16 @@ function App() {
   }
 
   const handleCreate = newProject => {
-    fetch(url + '/projects/', {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newProject)
-    }).then(() => {
-      setFormVals(emptyForm)
-      alert("Project added!")
-    })
+    // fetch(url + '/projects/', {
+    //   method: "post",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(newProject)
+    // }).then(() => {
+    //   setFormVals(emptyForm)
+    //   alert("Project added!")
+    // })
   }
 
   return (
